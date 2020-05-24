@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+// Set your brand colors
+// Colors
+$black:        #4B4B4B;
+$yellow:       #F7E8A4;
+$turquoise:    #6EFAFB;
+$pink:         #FF57BB;
+$blue:         #0091AD;
+$white:        #FFFFFF;
+
+// Update Bulma's global variables
+$family-sans-serif: 'Montserrat Alternates', sans-serif;
+$primary: $blue;
+$secundary:$turquoise;
+$link: $pink;
+
+$body-background-color: $white;
+// Update some of Bulma's component variables
+$control-border-width: 2px;
+$input-background-color:$white;
+$input-border-color: transparent;
+$input-shadow: none;
+
+// Import the rest of Bulma
+@import "../../../node_modules//bulma/bulma.sass";

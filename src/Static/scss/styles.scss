@@ -1,0 +1,53 @@
+@import './bulmaOverwrites.scss';
+
+h1{
+    font-family: $family-sans-serif;
+    font-size: 5vw;
+    text-transform: uppercase;
+    margin-left: 10%;
+}
+h2{
+    font-family: $family-sans-serif;
+    font-size: 3vw;
+    margin-left: 10%;
+    margin-bottom: 10%;
+}
+h3{
+    font-family: $family-sans-serif;
+    font-size: 2vw;
+}
+hr{
+    align-self: center;
+    width: 50%;
+}
+input{
+    margin:4px;
+}
+#logo{
+    height: 100%;
+    width: 100%;
+}
+.centered{
+    margin:auto;
+    text-align: center;
+}
+
+.is-error{
+    color: $red;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.is-result{
+    color: $black;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+section{
+    margin-top:10%;
+}
+
+.button{
+    margin-top: 10%;
+}
