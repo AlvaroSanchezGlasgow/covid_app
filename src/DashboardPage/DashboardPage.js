@@ -1,41 +1,42 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from "react-router-dom";
 import doctorsImg from '../Static/svg/doctors_pink.svg';
-import BarChart from 'react-bar-chart';
+import { LineChart, Line, Tooltip, Legend, XAxis, YAxis, CartesianGrid } from 'recharts';
+
 
 const axios = require('axios');
 
 function DashboardPage() {
-
-    const data = [
-        { text: 'Test A', value: 500 },
-        { text: 'Test B', value: 300 },
-        { text: 'Test C', value: 350 },
-        { text: 'Test D', value: 200 },
-        { text: 'Test E', value: 230 }
-    ];
-
     const [result, setResult] = useState();
+    const [country, setCountryName] = useState();
     const [error, setError] = useState(false);
     const [errorDescription, setErrorDesc] = useState(false);
-    const fetchData = async () => {
-        await axios.get(`https://api.covid19api.com/summary`, {
+
+    const handleChange = (e) => {
+        setCountryName(
+            e.target.value
+        )
+    }
+
+    const handleKey = (event) => {
+        if (event.keyCode === 13) {
+            handleClick();
+        }
+    }
+
+
+
+    const handleClick = () => {
+
+        axios.get(`https://api.covid19api.com/country/${country}`, {
             headers: {
                 'Content-Type': 'application/json',
             }
         })
             .then(function (response) {
                 setError(false);
-                //  alert(JSON.stringify(response));
-                const resultBarToDraw = response.data.Countries.map(item => {
-                    const resultBar = {};
-                    resultBar['text'] = item.Country;
-                    resultBar['value'] = item.TotalConfirmed;
-                    return resultBar;
-
-                })
-                setResult(resultBarToDraw);
+                setResult(response);
             })
             .catch(function (error) {
                 // handle error
@@ -51,37 +52,72 @@ function DashboardPage() {
 
     };
 
-    useEffect(() => { fetchData(); }, []);
+    //useEffect(() => { fetchData(); }, []);
 
 
     return (
         <>
-            <header>
-                <h1>dashboard</h1>
-            </header>
-            <main>
-                <div class="container">
-                    <div className="columns">
-                        <div className="column is-half">
-                            <h3>Total Cases</h3>
-                            {result &&
-                                <>
-                                    <BarChart ylabel='Quantity'
-                                        data={result}
-                                    />
-                                </>
-                            }
+            <div className="container">
+                <header>
+                    <h1>Covid-19 By Country</h1>
+                    <nav class="breadcrumb has-arrow-separator" aria-label="breadcrumbs">
+                        <ul>
+                            <li><Link to="/">Home</Link></li>
+                            <li class="is-active"><Link to="/byCountry">Covid-19 by Country</Link></li>
+                        </ul>
+                    </nav>
+                </header>
+                <main>
+                    <div className="container">
+                        <div className="columns is-centered">
+                            <div className="column">
+                                <div className="field">
+                                    <label className="label"></label>
+                                    <div className="control">
+                                        <input id="country" name="country" className="input" type="text" placeholder="Country" maxLength="50" onKeyDown={(e) => handleKey(e)} onChange={e => handleChange(e)} />
+                                    </div>
+                                </div>
+                                <div className="field is-grouped">
+                                    <div className="control">
+                                        <button className="button is-primary" onClick={() => handleClick()}>see data</button>
 
+                                    </div>
+
+                                </div>
+                                {result &&
+                                    <>
+                                        <center>
+
+                                            <LineChart width={800} height={450} data={result.data}>
+                                                <XAxis dataKey="Date" />
+                                                <YAxis />
+                                                <Tooltip />
+                                                <Legend />
+                                                <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
+                                                <Line type="monotone" dataKey="Confirmed" stroke="#4B4B4B" />
+                                                <Line type="monotone" dataKey="Deaths" stroke="#FF57BB" />
+                                                <Line type="monotone" dataKey="Recovered" stroke="#0091AD" />
+                                                <Line type="monotone" dataKey="Active" stroke="#6EFAFB" />
+                                            </LineChart>
+
+                                        </center>
+                                    </>
+                                }
+
+                            </div>
                         </div>
-                        <div className="column">
-                            <img src={doctorsImg} alt="" />
-                            <Link to='/' className="button is-primary">
-                                Home
-                            </Link>
+
+                        <div className="columns is-centered">
+                            {!result &&
+                                <div className="column is-half">
+                                    <img src={doctorsImg} alt="" />
+                                </div>
+                            }
                         </div>
                     </div>
-                </div>
-            </main>
+
+                </main>
+            </div>
         </>
     );
 }

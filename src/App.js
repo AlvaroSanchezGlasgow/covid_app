@@ -18,7 +18,7 @@ function App() {
             <HomePage />
           </Route>
 
-          <Route exact path="/dashboard">
+          <Route exact path="/byCountry">
             <DashboardPage />
           </Route>
         </Switch>

@@ -47,12 +47,12 @@ function InitialSection() {
                             {result &&
                                 <>
                                     <div className='is-result'>
-                                        <p><strong>New  Confirmed:</strong> {result.Global.NewConfirmed}</p>
-                                        <p><strong>Total Confirmed:</strong> {result.Global.TotalConfirmed}</p>
-                                        <p><strong>New  Deaths:</strong> {result.Global.NewDeaths}</p>
-                                        <p><strong>Total Deaths:</strong> {result.Global.TotalDeaths}</p>
-                                        <p><strong>New  Recovered:</strong> {result.Global.NewRecovered}</p>
-                                        <p><strong>Total  Recovered:</strong> {result.Global.TotalRecovered}</p>
+                                        <p><strong>New  Confirmed:</strong> {new Intl.NumberFormat('en-GB').format(result.Global.NewConfirmed)}</p>
+                                        <p><strong>Total Confirmed:</strong> {new Intl.NumberFormat('en-GB').format(result.Global.TotalConfirmed)}</p>
+                                        <p><strong>New  Deaths:</strong> {new Intl.NumberFormat('en-GB').format(result.Global.NewDeaths)}</p>
+                                        <p><strong>Total Deaths:</strong> {new Intl.NumberFormat('en-GB').format(result.Global.TotalDeaths)}</p>
+                                        <p><strong>New  Recovered:</strong> {new Intl.NumberFormat('en-GB').format(result.Global.NewRecovered)}</p>
+                                        <p><strong>Total  Recovered:</strong> {new Intl.NumberFormat('en-GB').format(result.Global.TotalRecovered)}</p>
                                     </div>
                                 </>
                             }
@@ -63,12 +63,12 @@ function InitialSection() {
 
                                         <p>Ups!! Something was wrong</p>
                                         <p>{errorDescription.message}</p>
-
+                                        
                                     </div>
                                 </>
                             }
-                            <Link to='/dashboard' className="button is-primary">
-                                Dashboard
+                            <Link to='/byCountry' className="button is-text">
+                                See data by country
                             </Link>
                         </div>
                     </div>

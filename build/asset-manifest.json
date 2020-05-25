@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ef0f602c.chunk.css",
+    "main.js": "/static/js/main.44c38e4f.chunk.js",
+    "main.js.map": "/static/js/main.44c38e4f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.aa03f268.js",
+    "runtime-main.js.map": "/static/js/runtime-main.aa03f268.js.map",
+    "static/js/2.a40c6e7c.chunk.js": "/static/js/2.a40c6e7c.chunk.js",
+    "static/js/2.a40c6e7c.chunk.js.map": "/static/js/2.a40c6e7c.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.1da138d9c2fd2d8586de80d6f54369ff.js": "/precache-manifest.1da138d9c2fd2d8586de80d6f54369ff.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.ef0f602c.chunk.css.map": "/static/css/main.ef0f602c.chunk.css.map",
+    "static/js/2.a40c6e7c.chunk.js.LICENSE.txt": "/static/js/2.a40c6e7c.chunk.js.LICENSE.txt",
+    "static/media/doctors_pink.svg": "/static/media/doctors_pink.65b8fc85.svg",
+    "static/media/medical_research_pink.svg": "/static/media/medical_research_pink.1c804caf.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.aa03f268.js",
+    "static/js/2.a40c6e7c.chunk.js",
+    "static/css/main.ef0f602c.chunk.css",
+    "static/js/main.44c38e4f.chunk.js"
+  ]
+}
