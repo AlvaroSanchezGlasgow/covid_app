@@ -69,7 +69,7 @@ function DashboardPage() {
                 </header>
                 <main>
                     <div className="container">
-                        <div className="columns is-centered">
+                        <div className="columns is-mobile">
                             <div className="column">
                                 <div className="field">
                                     <label className="label"></label>
