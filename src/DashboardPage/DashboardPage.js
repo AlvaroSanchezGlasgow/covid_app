@@ -10,8 +10,7 @@ const axios = require('axios');
 function DashboardPage() {
     const [result, setResult] = useState();
     const [country, setCountryName] = useState();
-    const [error, setError] = useState(false);
-    const [errorDescription, setErrorDesc] = useState(false);
+   
 
     const handleChange = (e) => {
         setCountryName(
@@ -35,14 +34,13 @@ function DashboardPage() {
             }
         })
             .then(function (response) {
-                setError(false);
+             
                 setResult(response);
             })
             .catch(function (error) {
                 // handle error
                 console.log(error);
-                setErrorDesc(error);
-                setError(true);
+               
 
             })
             .finally(function () {
