@@ -1,5 +1,6 @@
 import React from 'react';
 import HomePage from './HomePage/HomePage.js';
+// eslint-disable-next-line no-unused-vars
 import styles from './Static/scss/styles.scss';
 import {
   BrowserRouter as Router,
